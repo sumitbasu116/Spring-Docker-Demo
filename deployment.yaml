@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: docker-demo-deployment
+  namespace: docker-demo-namespace
+spec:
+  selector:
+    matchLabels:
+      app: spring-boot-k8s
+  replicas: 4
+  template:
+    metadata:
+      labels:
+        app: spring-boot-k8s
+    spec:
+      containers:
+        - name: spring-docker-demo-app-container
+          image: spring-docker-app:1.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8282

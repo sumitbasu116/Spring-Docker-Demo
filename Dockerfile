@@ -1,4 +1,5 @@
 FROM openjdk:17
+
 WORKDIR /app
 
 COPY ./target/Spring-Docker-Demo.jar /app/
